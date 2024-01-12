@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/shop?currentSchema=shop
+    username: admin
+    password: admin
+    driverClassName: org.postgresql.Driver
