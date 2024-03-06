@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.0.2-0.1
+      author: d.starichenok
+      changes:
+        - sqlFile:
+            dbms: postgresql
+            encoding: utf8
+            path: sql/v3__remove_log_sequences.sql
+            relativeToChangelogFile: true

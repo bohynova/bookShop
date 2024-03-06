@@ -1,0 +1,5 @@
+id,title,genre,author,price,sale,isBestseller,isNew,imagePath
+{ 1,Великий Роман,Детектив,Иван Иванов,29.99,10,true,true,/images/novel.jpg}
+{ 3,Тайна полуночи,Повесть,Марина Смирнова,39.99,20,false,true,/images/mystery.jpg}
+{ 2,Программирование 101,Новелла,Алексей Петров,49.99,0,false,false,/images/programming.jpg}
+{ 4,Космическая Одиссея,Роман,Екатерина Сидорова,59.99,15,true,false,/images/scifi.jpg}

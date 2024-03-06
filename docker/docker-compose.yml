@@ -1,10 +1,36 @@
 version: "3.9"
 services:
-  postgres:
+  db-postgresql:
     image: postgres:15.5
+    restart: unless-stopped
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_DB: "shop"
       POSTGRES_USER: "admin"
       POSTGRES_PASSWORD: "admin"
+
+  backup:
+    image: postgres:15.5
+    depends_on:
+      - db-postgresql
+    volumes:
+      - ./backup:/backup
     ports:
-      - "5432:5432"
+      - "49152:49152"
+    command: >
+      bash -c "while true; do
+        PGPASSWORD=$$POSTGRES_PASSWORD pg_dump -h db-postgresql -U $$POSTGRES_USER -Fc $$POSTGRES_DB > /backup/$$(date +%Y-%m-%d-%H-%M-%S).dump
+        echo ""Backup done at $$(date +%Y-%m-%d_%H:%M:%S)""
+        ls -1 /backup/*.dump | head -n -2 | xargs rm -f
+        sleep 86400
+      done"
+    environment:
+      POSTGRES_DB: "shop"
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "admin"
+
+volumes:
+  postgres:

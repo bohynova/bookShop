@@ -10,4 +10,9 @@ class AuthorServiceImpl(
     val authorDao: AuthorDao
 ) : AuthorService {
     override fun findAll(): List<Author>  = authorDao.findAll()
+
+    override fun findIdsByName(name: String) = authorDao.findIdsByName(name)
+    override fun create(author: Author) {
+        authorDao.create(author);
+    }
 }

@@ -1,0 +1,4 @@
+id,title,genre,author,price,sale,isBestseller,isNew,imagePath
+2,Программирование 101,Новелла,Алексей Петров,49.99,0,false,false,/images/programming.jpg
+10,Архитектура программирования,Новелла,Алексей Петров,59.99,0,true,false,/images/architecture.jpg
+13,Искусство программирования,Новелла,Алексей Петров,74.99,15,true,false,/images/programmingart.jpg

@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.0.1-0.1
+      author: d.starichenok
+      changes:
+        - sqlFile:
+            dbms: postgresql
+            encoding: utf8
+            path: sql/v2__create_audit_and_triggers.sql
+            relativeToChangelogFile: true

@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.0.3-0.1
+      author: d.starichenok
+      changes:
+        - sqlFile:
+            dbms: postgresql
+            encoding: utf8
+            path: sql/v4__table_users_and_authority.sql
+            relativeToChangelogFile: true

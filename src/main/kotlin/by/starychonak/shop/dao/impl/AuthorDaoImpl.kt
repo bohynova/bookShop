@@ -15,4 +15,13 @@ class AuthorDaoImpl(
             Author(rs.getLong("Id"), rs.getString("name"))
         }
     }
+
+    override fun findIdsByName(name: String): List<Long> =
+        jdbcTemplate.query("select * from author a where a.name like '%' || '$name' || '%'") { rs, _ ->
+            rs.getLong("Id")
+        }
+
+    override fun create(author: Author) {
+        jdbcTemplate.execute("insert into author(name) values ('${author.name}')")
+    }
 }
